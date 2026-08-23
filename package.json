@@ -1,0 +1,43 @@
+{
+  "name": "@zemd/ai",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AI tools, agents, skills, and MCP servers",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Dmytro Zelenetskyi",
+    "email": "oss@zemd.dev",
+    "url": "https://zemd.dev"
+  },
+  "type": "module",
+  "scripts": {
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "test-coverage": "turbo run test-coverage",
+    "typecheck": "tsc --noEmit && turbo run typecheck",
+    "format": "oxfmt",
+    "format-check": "oxfmt --check",
+    "check-skills": "node ./scripts/check-skills.ts",
+    "lint-fix": "oxlint --type-aware --fix",
+    "lint-check": "pnpm run check-skills && oxlint --type-aware --deny-warnings",
+    "lint-actions": "zizmor --strict-collection --collect=default --persona=regular .",
+    "lint-publish": "turbo run lint-publish",
+    "pre-commit": "./.githooks/pre-commit",
+    "pre-push": "./.githooks/pre-push",
+    "git-hooks-install": "./.githooks/install.sh",
+    "release-change": "pnpm change",
+    "release-status": "pnpm change status",
+    "prepare": "pnpm run git-hooks-install"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "@zemd/tsconfig": "2.1.1",
+    "oxfmt": "0.62.0",
+    "oxlint": "1.77.0",
+    "oxlint-tsgolint": "7.0.2001",
+    "publint": "0.3.23",
+    "turbo": "2.10.9",
+    "typescript": "catalog:"
+  },
+  "packageManager": "pnpm@11.22.0+sha512.1ff870c4c6133dfd88fb2afc46dd13d47f09c9794b438c6fdb47ca98caf3bc16381ee0be93a091b8e3824cf01f889f46d7d9e20910fb0be1ab0fb5baa80dd621"
+}

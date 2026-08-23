@@ -1,0 +1,25 @@
+name: zizmor
+
+permissions: {}
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  schedule:
+    - cron: "13 6 * * 1"
+  workflow_dispatch:
+
+concurrency:
+  group: zizmor-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  zizmor:
+    name: zizmor
+    uses: zemd/js/.github/workflows/shared-zizmor.yml@29e4b9216068b510a4d1200819ddd3f4383871ed # v4
+    permissions:
+      contents: read

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://turborepo.dev/schema.json",
+  "ui": "stream",
+  "globalDependencies": [".node-version", "pnpm-workspace.yaml"],
+  "noUpdateNotifier": true,
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsconfig.json", "tsdown.config.ts", "package.json"],
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**", "tsconfig.json", "package.json"]
+    },
+    "test-coverage": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "inputs": ["src/**", "tsconfig.json", "package.json"],
+      "outputs": ["coverage.lcov"]
+    },
+    "lint-publish": {
+      "dependsOn": ["build"]
+    },
+    "pre-commit": {},
+    "pre-push": {
+      "dependsOn": ["build"]
+    },
+    "typecheck": {
+      "dependsOn": ["build", "^build"],
+      "inputs": ["src/**", "tsconfig.json", "package.json"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

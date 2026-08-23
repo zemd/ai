@@ -1,0 +1,45 @@
+# editors
+.idea
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+coverage.lcov
+
+# output
+dist/
+
+# misc
+.DS_Store
+*.pem
+*.key
+*.p12
+*.pfx
+.npmrc
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local environment files
+.env
+.env.*
+!.env.example
+!.env.*.example
+.env*.local
+
+# TypeScript
+*.tsbuildinfo
+
+# tools
+.turbo
+
+# release
+pnpm-publish-summary.json
+.pnpm-store

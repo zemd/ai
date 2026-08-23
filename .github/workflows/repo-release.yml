@@ -1,0 +1,29 @@
+# Keep this file named `repo-release.yml`: npm trusted publishing validates the
+# calling workflow filename, not the reusable workflow that submits packages.
+name: Release
+
+permissions: {}
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Release
+    uses: zemd/js/.github/workflows/shared-release.yml@29e4b9216068b510a4d1200819ddd3f4383871ed # v4
+    permissions:
+      contents: read
+      id-token: write
+    with:
+      release-branchkeeper-client-id: ${{ vars.RELEASE_BRANCHKEEPER_CLIENT_ID }}
+      release-publisher-client-id: ${{ vars.RELEASE_PUBLISHER_CLIENT_ID }}
+    secrets:
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      RELEASE_BRANCHKEEPER_PRIVATE_KEY: ${{ secrets.RELEASE_BRANCHKEEPER_PRIVATE_KEY }}
+      RELEASE_PUBLISHER_PRIVATE_KEY: ${{ secrets.RELEASE_PUBLISHER_PRIVATE_KEY }}

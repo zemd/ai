@@ -1,0 +1,11 @@
+interface:
+  display_name: "Calculate Colors"
+  short_description: "Convert colors and inspect OKLCH gamut"
+  default_prompt: "Use $calculate-colors to convert this color and explain its OKLCH gamut limits."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "color"
+      description: "@zemd/color-mcp conversion and OKLCH gamut tools"
+      transport: "stdio"

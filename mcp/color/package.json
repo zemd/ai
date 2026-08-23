@@ -1,0 +1,74 @@
+{
+  "name": "@zemd/color-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for sRGB, OKLab, and OKLCH color conversion and gamut calculations",
+  "keywords": [
+    "color",
+    "mcp",
+    "model context protocol",
+    "oklab",
+    "oklch",
+    "srgb"
+  ],
+  "homepage": "https://github.com/zemd/ai/tree/main/mcp/color",
+  "bugs": {
+    "url": "https://github.com/zemd/ai/issues"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Dmytro Zelenetskyi",
+    "email": "oss@zemd.dev",
+    "url": "https://zemd.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zemd/ai.git",
+    "directory": "mcp/color"
+  },
+  "bin": {
+    "zemd-color-mcp": "./dist/cli.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {
+    "provenance": true
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint-publish": "publint",
+    "pretest": "pnpm run build",
+    "pretest-coverage": "pnpm run build",
+    "test": "node --test",
+    "test-coverage": "node --test --experimental-test-coverage \"--test-coverage-include=src/**/*.ts\" \"--test-coverage-exclude=src/**/*.test.ts\" --test-reporter=spec --test-reporter=lcov --test-reporter-destination=stdout --test-reporter-destination=coverage.lcov",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0",
+    "@zemd/color": "1.0.2",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "catalog:",
+    "@zemd/tsconfig": "2.1.1",
+    "fast-check": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

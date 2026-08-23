@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repository_root="$(git rev-parse --show-toplevel)"
+cd "$repository_root"
+exec </dev/null
+
+pnpm run check-skills
+pnpm run typecheck
+exec pnpm exec turbo run lint-publish test pre-push
