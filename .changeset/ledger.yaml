@@ -1,1 +1,4 @@
-{}
+"@zemd/color-mcp@1.0.0":
+  dir: mcp/color
+  intents:
+    - twenty-banks-guess
