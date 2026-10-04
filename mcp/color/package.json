@@ -61,7 +61,7 @@
     "zod": "catalog:"
   },
   "devDependencies": {
-    "@modelcontextprotocol/client": "2.0.0",
+    "@modelcontextprotocol/client": "2.1.0",
     "@types/node": "catalog:",
     "@zemd/tsconfig": "2.1.1",
     "fast-check": "catalog:",
