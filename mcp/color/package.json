@@ -56,8 +56,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@modelcontextprotocol/server": "2.0.0",
-    "@zemd/color": "1.0.2",
+    "@modelcontextprotocol/server": "2.3.1",
+    "@zemd/color": "1.0.3",
     "zod": "catalog:"
   },
   "devDependencies": {
